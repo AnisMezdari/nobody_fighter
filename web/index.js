@@ -25,7 +25,15 @@ createjs.Ticker.on("tick", stage);
 
 $(window).keydown(
     function(e){
-        if(e.keyCode == 13) {
-            sprite.gotoAndPlay("ouade1");
+        switch(e.keyCode ) {
+            case 13:
+                sprite.gotoAndPlay("ouade1");
+                break;
+            case 37:
+                sprite.x-=20;
+                break;
+            case 39:
+                sprite.x+=20;
+                break;
         }
 })
