@@ -11,49 +11,21 @@ var ss = new createjs.SpriteSheet({
     frames: {
         width: 256,
         height: 192,
-        numFrames: 2
+        numFrames: 3
     },
-    framerate: 24,
-    animations: {stand: [0], ouade: [1, "stand"]},
-    images: ["./img/Sprites-y-mia/y-mia-normal(b).gif","./img/Sprites-y-mia/y-mia-objection.gif"]
+    animations: {stand: [0], ouade1: [0,1, "ouade2"],ouade2: [1,2, "stand"]},
+    images: ["./img/mia/y-mia-normal(b).gif","./img/mia/y-mia-objection(1).gif","./img/mia/y-mia-objection(2).gif"]
 });
     
 var sprite = new createjs.Sprite(ss, "stand");
 sprite.scaleY = sprite.scaleX = 1.5;
 stage.addChild(sprite);
-    
-sprite.on("click", function() { alert("toto");sprite.gotoAndPlay("ouade"); });
-
-    
+   
 createjs.Ticker.on("tick", stage);
 
-
-// var shape = new createjs.Shape();
-// var x = 0;
-// var y = 0;
-
-
-// var bInc = true;
-// setInterval(function(){
-
-//     if (bInc) {
-//         x++;//y++;
-//     }
-//     else {
-//         x--;//y--;
-//     }
-//     shape.graphics.clear();
-//     stage.update();
-//     shape.graphics.beginFill('red').drawCircle(50+x,50+y,50);
-//     shape.graphics.beginFill('red').drawCircle(50+x,100+y,50);
-//     shape.graphics.beginFill('red').drawRect(40+x,50+y,200,50);
-//     shape.graphics.beginFill('red').drawCircle(250+x,75+y,30);
-//     stage.addChild(shape);
-//     stage.update();
-
-//     if (x == 100) {
-//         bInc = false;
-//     } else if (x == 0) {
-//         bInc = true;
-//     }
-// },5)
+$(window).keydown(
+    function(e){
+        if(e.keyCode == 13) {
+            sprite.gotoAndPlay("ouade1");
+        }
+})
