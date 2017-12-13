@@ -99,13 +99,14 @@ var update = function (modifier) {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     heroImage2.src = 'img/onepuchMan/7-persoDroiteInitiale.png';
   }
+  collision(heroImage,heroImage2, hero,hero2);
 
 };
 
 
 var render = function () {
-		ctx.drawImage(heroImage, hero.x, hero.y);
-    ctx.drawImage(heroImage2, hero2.x, hero2.y);
+	ctx.drawImage(heroImage, hero.x, hero.y);
+ ctx.drawImage(heroImage2, hero2.x, hero2.y);
 };
 
 
@@ -152,6 +153,16 @@ function animationAvance(){
   },70);
 }
 
+
+function collision(perso1,perso2,hero1,hero2){
+  var object1 = perso1;
+  var object2 = perso2;
+
+  if( hero1.x < hero2.x + object2.width  && hero1.x + object1.width  > hero2.x &&
+		hero1.y < hero2.y + object2.height && hero2.y + object1.height > hero2.y){
+      console.log("onestla");
+    }
+}
 
 function attack(){
     estAttcker = true;
