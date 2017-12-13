@@ -20,7 +20,7 @@ var hero = {
 var hero2 = {
 	speed: 400, // movement in pixels per second
 	x: 800,
-	y: 330
+	y: 300
 };
 var keysDown = {};
 
@@ -41,8 +41,8 @@ addEventListener("keyup", function (e) {
 
 
 var reset = function () {
-	hero.x = canvas.width / 2;
-	hero.y = canvas.height / 2;
+	hero.x = 100;
+	hero.y = 300;
 };
 
 
@@ -63,26 +63,41 @@ var update = function (modifier) {
 
     estAttcker = false;
 	}
+  // Gauche
 	if (37 in keysDown) { // Player holding left
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     heroImage.src = 'img/onepuchMan/6-persoGaucheRecule1.png';
 		hero.x -= hero.speed * modifier;
 	}
+  // Droite
 	if (39 in keysDown) { // Player holding right
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    heroImage.src = 'img/onepuchMan/1-persoGaucheInitiale.png';
-    animationAvance();
+    heroImage.src = 'img/onepuchMan/2-persoGaucheAvance1.png';
+    // animationAvance();
 		hero.x += hero.speed * modifier;
 	}
+
+  if(!(37 in keysDown) && !(39 in keysDown)){
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    heroImage.src = 'img/onepuchMan/1-persoGaucheInitiale.png';
+  }
   // Q
   if(81 in keysDown) {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    heroImage2.src = 'img/onepuchMan/8-persoDroiteAvance1.png';
     hero2.x -= hero2.speed * modifier;
   }
   // D
   if(68 in keysDown) {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    heroImage2.src = 'img/onepuchMan/12-persoDroiteRecule1.png';
     hero2.x += hero2.speed * modifier;
+  }
+
+
+  if(!(68 in keysDown) && !(81 in keysDown)){
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    heroImage2.src = 'img/onepuchMan/7-persoDroiteInitiale.png';
   }
 
 };
