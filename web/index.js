@@ -74,10 +74,12 @@ var update = function (modifier) {
     animationAvance();
 		hero.x += hero.speed * modifier;
 	}
+  // Q
   if(81 in keysDown) {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     hero2.x -= hero2.speed * modifier;
   }
+  // D
   if(68 in keysDown) {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     hero2.x += hero2.speed * modifier;
